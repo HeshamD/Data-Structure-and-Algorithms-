@@ -1,0 +1,57 @@
+public class Solution {
+    
+    
+    // The Time Complexity is O(n^2)
+    // Space Complexity is O(1)
+    
+    public bool ContainsDuplicate(int[] nums) {
+        
+        //so basically I am itterating through the array twice, first will hold the first element and the second will compare the second element in the list in the array with the first element in the array 
+        
+        for(int i=0; i<nums.Length;i++)
+        {
+            for(int j = i+1; j<nums.Length;j++)
+            {
+                if(nums[i]==nums[j])
+                {
+                    return true;
+                }
+            }
+            
+        }
+        
+        return false;
+        
+    }
+    
+    
+    
+    // different ways : By Sorting the array 
+      // Time Complexity : O(nlogn) coz of the sorting
+      // Space : O(1)
+    
+    // Hashset: insert elements in O(1)
+          //Time Complexity : O(n)
+          //Space Complexity : O(n)
+         public bool ContainsDuplicate(int[] nums) {
+        
+         //Creating a hashset that I will insert the items of the array inside and also i will each if the number exist or not.
+        
+         HashSet<int> arrayElements = new HashSet<int>();
+         
+         foreach(int item in nums)
+         {
+             if(arrayElements.Contains(item))
+             {
+                 return true;
+             }
+             
+             arrayElements.Add(item);
+             
+         }
+         
+         return false;
+        
+    }
+
+}
